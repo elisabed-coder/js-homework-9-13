@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>coloredclock</title>
+    <style>
+      #hours {
+        color: red;
+      }
+
+      #minutes {
+        color: green;
+      }
+      #seconds {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="clock">
+      <span id="hours">hh</span>:<span id="minutes">mm</span>:<span
+        id="seconds"
+      ></span>
+    </div>
+    <script>
+      function padZero(value) {
+        // if (value < 10) {
+        //   return `0${value}`;
+        // } else {
+        //   return value;
+        // }
+        return value < 10 ? `0${value}` : value;
+      }
+      function getClock() {
+        let body = document.body;
+
+        let hours = document.getElementById("hours");
+        let minutes = document.getElementById("minutes");
+        let seconds = document.getElementById("seconds");
+
+        let date = new Date();
+        let hour = date.getHours();
+        let minute = date.getMinutes();
+        let second = date.getSeconds();
+
+        hours.innerHTML = padZero(hour);
+        minutes.innerHTML = padZero(minute);
+        seconds.innerHTML = padZero(second);
+      }
+
+      setInterval(getClock, 1000);
+    </script>
+  </body>
+</html>

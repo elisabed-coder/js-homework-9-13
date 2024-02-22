@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Length of string</title>
+  </head>
+  <body>
+    <script>
+      // create fucntion that check lenght of string
+
+      function truncate(str, maxlength) {
+        if (str.length > maxlength) {
+          let extrachars = str.slice(0, maxlength) + "...";
+          console.log(extrachars);
+        } else {
+          console.log(str);
+        }
+      }
+      // if length exceeds maxlength replace enf of str "..."
+
+      truncate("whaaaaaats", 5);
+    </script>
+  </body>
+</html>

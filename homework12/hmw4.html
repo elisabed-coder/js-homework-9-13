@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #div1 {
+        border: 1px red dotted;
+        width: 20%;
+        margin: 10px;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div1">Hello world</div>
+    <script>
+      let div1 = document.getElementById("div1");
+      let computedStyle = getComputedStyle(div1);
+      let currentMarginLeft = parseInt(computedStyle.marginLeft);
+      console.log(currentMarginLeft);
+      let newMarginLeft = currentMarginLeft + 20 + "px";
+      console.log(newMarginLeft);
+    </script>
+  </body>
+</html>

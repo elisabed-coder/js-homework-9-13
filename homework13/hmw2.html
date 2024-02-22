@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+    <div id="cal"></div>
+  </head>
+  <body>
+    <script>
+      const weekDays = ["კვ", "ორშ", "სამ", "ოთხ", "ხუთ", "პარ", "შაბ"];
+
+      function getDaysInMonth(year, month) {
+        return new Date(year, month, 0).getDate();
+      }
+
+      function getFirstDayInMonth(year, month) {
+        return new Date(year, month - 1, 1).getDay();
+      }
+
+      function createCalendar(elem, year, month) {
+        let table = document.createElement("table"); // თეიბლ ელემენტის შექმნა
+        table.style.borderCollapse = "collapse";
+
+        // create the table header with the week day names
+        let headerRow = document.createElement("tr");
+        table.append(headerRow);
+
+        for (let weekDay of weekDays) {
+          let th = document.createElement("th");
+
+          th.style.border = "1px solid black";
+          th.style.backgroundColor = "#DDD";
+          th.style.padding = "2px";
+
+          th.innerHTML = weekDay;
+          headerRow.appendChild(th);
+        }
+
+        console.log(headerRow);
+
+        let daysNumber = getDaysInMonth(year, month);
+        let firstDayInMonth = getFirstDayInMonth(year, month);
+
+        let row = document.createElement("tr");
+        table.append(row);
+
+        // spaces for the first row from Sunday till the first day of the month
+        for (let i = 0; i < firstDayInMonth; i++) {
+          let td = document.createElement("td");
+          td.style.border = "1px solid black";
+          row.append(td);
+        }
+
+        // <td> with actual dates
+        for (
+          let i = firstDayInMonth, currDay = 1;
+          currDay <= daysNumber;
+          i++, currDay++
+        ) {
+          if (i % 7 == 0) {
+            row = document.createElement("tr");
+            table.append(row);
+          }
+
+          let td = document.createElement("td");
+          td.style.border = "1px solid black";
+          td.style.padding = "3px";
+          td.style.textAlign = "center";
+          td.innerHTML = currDay;
+          row.appendChild(td);
+        }
+
+        // add spaces after last days of month for the last row
+        let i = firstDayInMonth + daysNumber;
+        while (i % 7 != 0) {
+          let td = document.createElement("td");
+          td.style.border = "1px solid black";
+          row.appendChild(td);
+          i++;
+        }
+
+        elem.append(table);
+      }
+
+      let cal = document.getElementById("cal");
+      createCalendar(cal, 2024, 2);
+    </script>
+  </body>
+</html>

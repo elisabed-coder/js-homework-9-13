@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NaNNumber</title>
+  </head>
+  <body>
+    <script>
+      let number = +prompt("enter a number");
+      while (true) {
+        if (isNaN(number)) {
+          alert("error message");
+          number = +prompt("enter a number");
+        } else {
+          alert("d");
+          break;
+        }
+      }
+    </script>
+  </body>
+</html>

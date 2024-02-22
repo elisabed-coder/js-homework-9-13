@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sumInput</title>
+  </head>
+  <body>
+    <script>
+      let numbers = [];
+      let sum = 0;
+
+      while (true) {
+        let num = prompt("enter the number");
+        if (isNaN(num) || num === null || num === "") {
+          break;
+        }
+        numbers.push(+num);
+      }
+      console.log(numbers);
+
+      numbers.forEach((item) => {
+        sum += item;
+      });
+      console.log(sum);
+    </script>
+  </body>
+</html>

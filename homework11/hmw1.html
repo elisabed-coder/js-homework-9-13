@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>square</title>
+  </head>
+  <body>
+    <script>
+      let number = +prompt("enter the number");
+
+      for (let row = 0; row < number; row++) {
+        let res = "*";
+        for (let column = 0; column < number; column++) {
+          res += "*";
+        }
+        console.log("\n" + res);
+      }
+    </script>
+  </body>
+</html>

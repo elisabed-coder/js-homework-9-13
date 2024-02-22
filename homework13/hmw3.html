@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ball</title>
+    <style>
+      #field {
+        width: 200px;
+        height: 150px;
+        border: 10px solid black;
+        background-color: #00ff00;
+        overflow: hidden;
+        position: relative;
+      }
+      #ball {
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    Click on a field to move the ball there.
+    <div id="field">
+      <img src="https://en.js.cx/clipart/ball.svg" id="ball" /> . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . .
+    </div>
+    <script>
+      let ball = document.getElementById("ball");
+      let field = document.getElementById("field");
+
+      field.onclick = function movetheball(event) {
+        let rect = field.getBoundingClientRect(); //გვიბრუნებს ყველა გეომეტრიული ფროფერთის მნიშვნელობას
+
+        let left =
+          event.clientX - rect.left - field.clientLeft - ball.offsetWidth / 2;
+        let top =
+          event.clientY - rect.top - field.clientTop - ball.offsetHeight / 2;
+
+        if (
+          left >= 0 &&
+          left <= field.clientWidth - ball.offsetWidth &&
+          top >= 0 &&
+          top <= field.clientHeight - ball.offsetHeight
+        ) {
+          ball.style.left = left + "px";
+          ball.style.top = top + "px";
+        }
+      };
+    </script>
+  </body>
+</html>

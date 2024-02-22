@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>clear elem</title>
+  </head>
+  <body>
+    <ol id="list">
+      <li>Hello</li>
+      <li>World</li>
+    </ol>
+    <script>
+      function clear(elem) {
+        let list = document.getElementById("list");
+        while (list.firstChild) {
+          list.removeChild(list.firstChild);
+        }
+      }
+      clear(list);
+
+      function clear(elem) {
+        let list = document.getElementById("list");
+        list.innerHTML = "";
+      }
+      clear(list);
+    </script>
+  </body>
+</html>

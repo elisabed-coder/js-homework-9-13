@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .selected {
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>click to select</h3>
+    <ul id="selectable-list">
+      <li>Christopher Robin</li>
+      <li>Winnie</li>
+      <li>Winnie</li>
+      <li>Winnie</li>
+      <li>Winnie</li>
+    </ul>
+    <script>
+      let listItems = document.querySelectorAll("#selectable-list li");
+      listItems.forEach((item) => {
+        item.addEventListener("click", function (event) {
+          if (event.ctrlKey || event.metaKey) {
+            this.classList.toggle("selected");
+          } else {
+            listItems.forEach((li) => li.classList.remove("selected"));
+            this.classList.add("selected");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
